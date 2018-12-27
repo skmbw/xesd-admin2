@@ -2,10 +2,10 @@ import {Inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {zip} from 'rxjs';
 import {catchError} from 'rxjs/operators';
-import {ALAIN_I18N_TOKEN, MenuService, SettingsService, TitleService,} from '@delon/theme';
+import {ALAIN_I18N_TOKEN, MenuService, SettingsService, TitleService} from '@delon/theme';
 import {ACLService} from '@delon/acl';
 import {TranslateService} from '@ngx-translate/core';
-import {I18NService} from '../i18n/i18n.service';
+import {I18NService} from '@core';
 
 import {NzIconService} from 'ng-zorro-antd';
 import {ICONS_AUTO} from '../../../style-icons-auto';
