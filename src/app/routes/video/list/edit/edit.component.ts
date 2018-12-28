@@ -9,7 +9,7 @@ import {SFSchema, SFUISchema} from '@delon/form';
 })
 export class VideoListEditComponent implements OnInit {
   record: any = {};
-  i: any;
+  i: any = {};
   schema: SFSchema = {
     properties: {
       no: { type: 'string', title: '编号' },
@@ -46,7 +46,7 @@ export class VideoListEditComponent implements OnInit {
   ngOnInit(): void {
     // alert(this.i);
     // alert(this.record);
-    // alert(this.record.id);
+    // alert(this.record.id); // this.undefined就是穿过来的参数，但是table.js._btnClick中的bug，没有设置或取到参数名导致
     if (this.record.id > 0)
       this.http.get(`/user/${this.record.id}`).subscribe(res => (this.i = res));
   }

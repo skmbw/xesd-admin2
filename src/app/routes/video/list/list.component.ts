@@ -46,7 +46,7 @@ export class VideoListComponent implements OnInit {
           text: '编辑',
           type: 'static',
           component: VideoListEditComponent,
-          modal: {params: {id: 44}}
+          modal: {params: {id: 44}, paramsName: 'record'}
           // click: (item: any) => item
         }
       ]
