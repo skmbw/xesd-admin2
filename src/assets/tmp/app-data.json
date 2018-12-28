@@ -59,7 +59,7 @@
         {
           "text": "视频管理",
           "i18n": "menu.video.management",
-          "icon": "anticon anticon-video",
+          "icon": "anticon anticon-video-camera",
           "shortcutRoot": true,
           "children": [
             {
