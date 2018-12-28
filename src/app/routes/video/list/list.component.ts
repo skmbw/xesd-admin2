@@ -42,11 +42,12 @@ export class VideoListComponent implements OnInit {
               .subscribe(() => this.st.reload());
           }
         },
-        {
+        { // 这种方式打开modal为什么不能正确的传递参数呢
           text: '编辑',
-          type: 'modal',
+          type: 'static',
           component: VideoListEditComponent,
-          click: (item: any) => item
+          modal: {params: {id: 44}}
+          // click: (item: any) => item
         }
       ]
     }
