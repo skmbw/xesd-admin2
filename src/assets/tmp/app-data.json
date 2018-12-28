@@ -68,6 +68,19 @@
               "i18n": "menu.video.list"
             }
           ]
+        },
+        {
+          "text": "文章管理",
+          "i18n": "menu.article.management",
+          "icon": "anticon anticon-file-text",
+          "shortcutRoot": true,
+          "children": [
+            {
+              "text": "文章列表",
+              "link": "/article/list",
+              "i18n": "menu.article.list"
+            }
+          ]
         }
       ]
     },

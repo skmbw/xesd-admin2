@@ -2,14 +2,12 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {_HttpClient, ModalHelper} from '@delon/theme';
 import {STColumn, STComponent} from '@delon/abc';
 import {SFSchema} from '@delon/form';
-import {VideoListEditComponent} from './edit/edit.component';
-import {VideoListViewComponent} from './view/view.component';
 
 @Component({
-  selector: 'video-list',
+  selector: 'article-list',
   templateUrl: './list.component.html',
 })
-export class VideoListComponent implements OnInit {
+export class ArticleListComponent implements OnInit {
   url = `/user`;
   searchSchema: SFSchema = {
     properties: {
@@ -27,9 +25,14 @@ export class VideoListComponent implements OnInit {
     { title: '时间', type: 'date', index: 'updatedAt' },
     {
       title: '',
+      // 这里是进行页面跳转的 配置
       buttons: [
-        { text: '查看', type: 'modal', component: VideoListViewComponent, click: (item: any) => `/view/${item.id}` },
-        { text: '编辑', type: 'static', component: VideoListEditComponent, click: 'reload' }
+        { text: '查看', type: 'link', click: (item: any) => `article/view/${item.id}` }, // 返回的url，可以不以/开头
+        {
+          text: '编辑',
+          type: 'link',
+          click: (item: any) => `/article/edit/${item.id}` // 这里要返回全url，否则404
+        },
       ]
     }
   ];
@@ -39,9 +42,9 @@ export class VideoListComponent implements OnInit {
   ngOnInit() { }
 
   add() {
-    this.modal
-      .createStatic(VideoListEditComponent, { i: { id: 0 } })
-      .subscribe(() => this.st.reload());
+    // this.modal
+    //   .createStatic(FormEditComponent, { i: { id: 0 } })
+    //   .subscribe(() => this.st.reload());
   }
 
 }

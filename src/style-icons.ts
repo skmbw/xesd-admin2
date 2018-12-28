@@ -3,6 +3,7 @@
 import {
   BulbOutline,
   ExceptionOutline,
+  FileTextOutline,
   InfoOutline,
   LinkOutline,
   ProfileOutline,
@@ -15,5 +16,6 @@ export const ICONS = [
   ProfileOutline,
   ExceptionOutline,
   LinkOutline,
-  VideoCameraOutline
+  VideoCameraOutline,
+  FileTextOutline
 ];

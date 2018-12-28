@@ -43,7 +43,8 @@ const routes: Routes = [
       // Exception
       { path: 'exception', loadChildren: './exception/exception.module#ExceptionModule' },
       // 业务module
-      { path: 'video', loadChildren: './video/video.module#VideoModule' }
+      { path: 'video', loadChildren: './video/video.module#VideoModule' },
+      { path: 'article', loadChildren: './article/article.module#ArticleModule' }
     ],
   },
   // 全屏布局
