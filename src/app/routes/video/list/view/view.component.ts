@@ -17,7 +17,8 @@ export class VideoListViewComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.http.get(`/user/${this.record.id}`).subscribe(res => this.i = res);
+    // this.http.get(`/user/${this.record.id}`).subscribe(res => this.i = res);
+    this.i = {'id': 22};
   }
 
   close() {

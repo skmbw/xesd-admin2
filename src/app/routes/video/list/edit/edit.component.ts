@@ -45,7 +45,7 @@ export class VideoListEditComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.record.id > 0)
-    this.http.get(`/user/${this.record.id}`).subscribe(res => (this.i = res));
+      this.http.get(`/user/${this.record.id}`).subscribe(res => (this.i = res));
   }
 
   save(value: any) {
