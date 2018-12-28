@@ -30,14 +30,15 @@ export class VideoListComponent implements OnInit {
       buttons: [
         {
           text: '查看',
-          // 如果在static中打开modal，那么type是不需要指定的
+          // 如果在click中打开modal，那么type是不需要指定的
           // type: 'static', // static（点击蒙层不关闭）和modal（点击蒙层关闭modal）的区别
           // component: VideoListViewComponent,
           // modal: {params: {'id': 322}, paramsName: 'record'},
           click: (item: any) => {
             this.modal
-              // static的modal点击蒙层，不会关闭
-              .createStatic(VideoListViewComponent, { i: { id: item.id } })
+              // static的modal点击蒙层，不会关闭modal
+              // 这个参数名有两个一个是i，一个是record
+              .createStatic(VideoListViewComponent, { record: item })
               .subscribe(() => this.st.reload());
           }
         },
