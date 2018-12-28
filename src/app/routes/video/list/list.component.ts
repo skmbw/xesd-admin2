@@ -2,6 +2,8 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {_HttpClient, ModalHelper} from '@delon/theme';
 import {STColumn, STComponent} from '@delon/abc';
 import {SFSchema} from '@delon/form';
+import {VideoListEditComponent} from "./edit/edit.component";
+import {VideoListViewComponent} from "./view/view.component";
 
 @Component({
   selector: 'video-list',
@@ -26,8 +28,8 @@ export class VideoListComponent implements OnInit {
     {
       title: '',
       buttons: [
-        // { text: '查看', click: (item: any) => `/form/${item.id}` },
-        // { text: '编辑', type: 'static', component: FormEditComponent, click: 'reload' },
+        { text: '查看', type: 'modal', component: VideoListViewComponent, click: (item: any) => `/view/${item.id}` },
+        { text: '编辑', type: 'static', component: VideoListEditComponent, click: 'reload' }
       ]
     }
   ];
@@ -37,9 +39,9 @@ export class VideoListComponent implements OnInit {
   ngOnInit() { }
 
   add() {
-    // this.modal
-    //   .createStatic(FormEditComponent, { i: { id: 0 } })
-    //   .subscribe(() => this.st.reload());
+    this.modal
+      .createStatic(VideoListEditComponent, { i: { id: 0 } })
+      .subscribe(() => this.st.reload());
   }
 
 }
