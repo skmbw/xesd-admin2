@@ -67,6 +67,8 @@
   "menu.extras.helpcenter": "Help Center",
   "menu.extras.settings": "Settings",
   "menu.extras.poi": "Poi",
+  "menu.video.management": "Video Management",
+  "menu.video.list": "Video List",
   "app.analysis.test": "Gongzhuan No.{{no}} shop",
   "app.analysis.introduce": "Introduce",
   "app.analysis.total-sales": "Total Sales",

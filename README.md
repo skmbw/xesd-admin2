@@ -26,6 +26,13 @@ Ng Alain
 
 English | [简体中文](README-zh_CN.md)
 
+## 新增模块
+* 使用命令新增module
+* 在routes-routing.module.ts中配置新增module的路由
+* 在app-data.json中，添加菜单数据，当然如果这个数据是来自后台，那么就在后台添加
+* 在app-data.json中使用到了i18n的数据和icon的数据。i18n的数据在tmp/i18n/下的文件中添加对应的i18n数据
+* icon的数据怎么添加？？？
+
 ## Quick start
 
 ```bash
