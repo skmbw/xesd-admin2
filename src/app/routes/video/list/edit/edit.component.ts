@@ -9,7 +9,7 @@ import {SFSchema, SFUISchema} from '@delon/form';
 })
 export class VideoListEditComponent implements OnInit {
   record: any = {};
-  i: any = {};
+  i: any;
   schema: SFSchema = {
     properties: {
       no: { type: 'string', title: '编号' },

@@ -45,8 +45,17 @@ export class VideoListComponent implements OnInit {
         { // 这种方式打开modal为什么不能正确的传递参数呢
           text: '编辑',
           type: 'static',
-          component: VideoListEditComponent,
-          modal: {params: {id: 44}, paramsName: 'record'}
+          component: VideoListEditComponent // 默认将当前行记录record传进去作为参数
+          // 这个参数没有使用，是一个bug，在@delon/abc/fesm5/table.js._btnClick（1976行）中，根本没有判断paramsName是否为空
+          // modal: {
+          //   params: (record: STData) => {
+          //     if (record === null || record === undefined) {
+          //       record = {};
+          //     }
+          //     record.id = 234;
+          //     record.name = 'yinlei';
+          //     return record;
+          //   }, 'paramsName': 'record'}
           // click: (item: any) => item
         }
       ]
