@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.xueershangda.tianxun.account.model;
+
+message PlatformDetail {
+	string id = 1;
+	string userId = 2;
+	string accountId = 3;
+	double amount = 4;
+	int32 category = 5;
+	int64 operationTime = 6;
+	int32 page = 7;
+	int32 pageSize = 8;
+	string orderBy = 9;
+
+}

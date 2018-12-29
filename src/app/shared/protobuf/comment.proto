@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package com.xueershangda.tianxun.comment.model;
+
+message Comment {
+	string id = 1;
+	string content = 2;
+	string userId = 3;
+	string nickName = 4;
+	int64 commentDate = 5;
+	string articleId = 6;
+	int32 type = 7;
+	int32 orders = 8;
+	int32 state = 9;
+	int32 page = 10;
+	int32 pageSize = 11;
+	string orderBy = 12;
+
+}
+
+message CommentReply {
+  int32 code = 1;
+  string message = 2;
+  repeated Comment data = 3;
+}

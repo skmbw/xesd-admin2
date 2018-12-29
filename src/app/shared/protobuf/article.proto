@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+import "images.proto";
+
+package com.xueershangda.tianxun.article.model;
+
+message Article {
+	string id = 1;
+	string title = 2;
+	string summary = 3;
+	int32 freeTimes = 4;
+	string category = 5;
+	string specialId = 6;
+	string terminal = 7;
+	string authorId = 8;
+	string authorName = 9;
+	int64 createDate = 10;
+	int64 updateDate = 11;
+	int32 state = 12;
+	bool platform = 13;
+	bool open = 14;
+	bool deleted = 15;
+	bool free = 16;
+	double price = 17;
+	string content = 18;
+	int64 number = 19;
+	int64 focusNumber = 20;
+	int64 loveNumber = 21;
+	int64 despiseNumber = 22;
+	int64 deleteDate = 23;
+	int32 page = 24;
+	int32 pageSize = 25;
+	string orderBy = 26;
+	string tokenId = 27;
+  repeated Images fileList = 28;
+  repeated string ids = 29;
+  string coverImage = 30;
+  string backup = 31;
+}
+
+message ArticleReply {
+ int32 code = 1;
+ string message = 2;
+ repeated Article data = 3;
+}

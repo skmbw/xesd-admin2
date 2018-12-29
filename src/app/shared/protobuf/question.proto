@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+import "images.proto";
+import "answer.proto";
+// 其实这个package无需和Java端的包对应，对于js来说，这个是弱的
+package com.xueershangda.tianxun.question.model;
+
+message Question {
+	string id = 1;
+	string title = 2;
+	string summary = 3;
+	double price = 4;
+	string asker = 5;
+	string askerName = 6;
+	int64 askDate = 7;
+	int64 answerDate = 8;
+	int64 closeDate = 9;
+	bool solved = 10;
+	bool open = 11;
+	int32 platform = 12;
+	string category = 13;
+	int32 categoryCode = 14;
+	string satisfiedAnswerId = 15;
+	string satisfiedUserId = 16;
+	string satisfiedUserName = 17;
+	int32 state = 18;
+	bool deleted = 19;
+	string content = 20;
+	int64 number = 21;
+	int32 answerNumber = 22;
+	int64 focusNumber = 23;
+	int64 loveNumber = 24;
+	int64 despiseNumber = 25;
+	int32 fee = 26;
+	int32 serviceType = 27;
+	int64 deleteDate = 28;
+	int32 terminal = 29;
+	int32 page = 30;
+	int32 pageSize = 31;
+	string orderBy = 32;
+	string tokenId = 33;
+  repeated Images fileList = 34;
+  Answer answer = 35;
+  string userId = 36;
+  string filePath = 37;
+  string type = 38;
+  repeated string ids = 39;
+  string account = 40;
+}
+
+message QuestionReply {
+  int32 code = 1;
+  string message = 2;
+  repeated Question data = 3;
+}

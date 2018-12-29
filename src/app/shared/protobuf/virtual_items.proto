@@ -1,0 +1,33 @@
+syntax = "proto3";
+import "equipment.proto";
+package com.xueershangda.tianxun.game.model;
+
+message VirtualItems {
+	string id = 1;
+	string name = 2;
+	string occupation = 3;
+	string type = 4;
+	int32 damage = 5;
+	int32 defense = 6;
+	int32 healthPoint = 7;
+	int32 level = 8;
+	int32 state = 9;
+	bool dressed = 10;
+	int32 page = 11;
+	int32 pageSize = 12;
+	string orderBy = 13;
+  string coverImage = 14;
+  int64 number = 15;
+  int64 focusNumber = 16;
+  int64 loveNumber = 17;
+  int32 price = 18;
+  string summary = 19;
+  string text = 20;
+}
+
+message VirtualItemsReply {
+  int32 code = 1;
+  string message = 2;
+  repeated VirtualItems data = 3;
+  repeated Equipment equipmentList = 4;
+}

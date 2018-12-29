@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package com.xueershangda.tianxun.proto;
+
+message Tags {
+	string id = 1;
+	string name = 2;
+	int32 state = 3;
+	int32 hot = 4;
+	int64 createDate = 5;
+	int64 focusNumber = 6;
+	int64 loveNumber = 7;
+	int64 despiseNumber = 8;
+	string description = 9;
+	int32 page = 10;
+	int32 pageSize = 11;
+	string orderBy = 12;
+	
+}

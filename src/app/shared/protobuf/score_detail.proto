@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.xueershangda.tianxun.score.model;
+
+message ScoreDetail {
+	string id = 1;
+	string scoreId = 2;
+	int32 score = 3;
+	string targetId = 4;
+	string type = 5;
+	int64 createDate = 6;
+	string comment = 7;
+	string userId = 8;
+	int32 page = 9;
+	int32 pageSize = 10;
+	string orderBy = 11;
+}

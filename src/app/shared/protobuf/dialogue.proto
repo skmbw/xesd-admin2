@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package com.xueershangda.tianxun.answer.model;
+
+message Dialogue {
+	string id = 1;
+	string userId = 2;
+	string nickName = 3;
+	int64 dialogDate = 4;
+	string questionId = 5;
+	int32 state = 6;
+	bool open = 7;
+	string answerId = 8;
+	string content = 9;
+	int32 page = 10;
+	int32 pageSize = 11;
+	string orderBy = 12;
+
+}
+
+message DialogueReply {
+  int32 code = 1;
+  string message = 2;
+  repeated Dialogue data = 3;
+}

@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+
+package com.vteba.web.action;
+
+message JsonBean {
+  int32 code = 1;
+  string message = 2;
+  Any data = 3;
+}

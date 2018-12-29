@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package com.xueershangda.tianxun.proto;
+
+message Follow {
+	string id = 1;
+	string userId = 2;
+	int64 followDate = 3;
+	string followId = 4;
+	int32 type = 5;
+	string targetId = 6;
+	string name = 7;
+	string remark = 8;
+	int32 page = 9;
+	int32 pageSize = 10;
+	string orderBy = 11;
+	
+}

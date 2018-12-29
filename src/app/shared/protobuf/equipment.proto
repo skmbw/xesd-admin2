@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package com.xueershangda.tianxun.game.model;
+
+message Equipment {
+	string id = 1;
+	string name = 2;
+	string occupation = 3;
+	string type = 4;
+	int32 damage = 5;
+	int32 defense = 6;
+	int32 healthPoint = 7;
+	string userId = 8;
+	int32 state = 9;
+	bool dressed = 10;
+	int32 page = 11;
+	int32 pageSize = 12;
+	string orderBy = 13;
+  int32 level = 14;
+  string coverImage = 15;
+  string summary = 16;
+  string text = 17;
+  string itemsId = 18;
+  int32 heatDegree = 19;
+}
+
+message EquipmentReply {
+  int32 code = 1;
+  string message = 2;
+  repeated Equipment data = 3;
+}

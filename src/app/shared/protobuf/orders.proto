@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package com.xueershangda.tianxun.orders.model;
+
+message Orders {
+	string id = 1;
+	string targetId = 2;
+	int32 type = 3;
+	int64 createDate = 4;
+	int64 payDate = 5;
+	double amount = 6;
+	int32 state = 7;
+	string buyer = 8;
+	string seller = 9;
+	string payChannel = 10;
+	string account = 11;
+	string remark = 12;
+	string subject = 13;
+	string tradeNo = 14;
+	int32 page = 15;
+	int32 pageSize = 16;
+	string orderBy = 17;
+
+}
+
+message OrdersReply {
+  int32 code = 1;
+  string message = 2;
+  repeated Orders data = 3;
+}

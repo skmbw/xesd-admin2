@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.xueershangda.tianxun.proto;
+
+message Content {
+	string id = 1;
+	string articleId = 2;
+	string text = 3;
+	int32 order = 4;
+	int32 page = 5;
+	int32 pageSize = 6;
+	string orderBy = 7;
+	
+}

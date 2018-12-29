@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.xueershangda.tianxun.account.model;
+
+message PlatformAccount {
+	string id = 1;
+	double balance = 2;
+	double total = 3;
+	double discount = 4;
+	int32 page = 5;
+	int32 pageSize = 6;
+	string orderBy = 7;
+
+}

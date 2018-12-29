@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package com.xueershangda.tianxun.user.model;
+
+message Favorite {
+	string id = 1;
+	int64 favoriteDate = 2;
+	string targetId = 3;
+	int32 targetType = 4;
+	string userId = 5;
+	string remark = 6;
+	string name = 7;
+	int32 state = 8;
+	int32 page = 9;
+	int32 pageSize = 10;
+	string orderBy = 11;
+}
+
+message FavoriteReply {
+  int32 code = 1;
+  string message = 2;
+  repeated Favorite data = 3;
+}

@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package com.xueershangda.tianxun.game.model;
+
+message Characters {
+	string id = 1;
+	string userId = 2;
+	string arms = 3;
+	string armour = 4;
+	string gaiter = 5;
+	string shoes = 6;
+	string helmet = 7;
+	string wrister = 8;
+	string ringRight = 9;
+	string ringLeft = 10;
+	string necklace = 11;
+	string belt = 12;
+	string shoulder = 13;
+	int32 damage = 14;
+	int32 defense = 15;
+	int32 healthPoint = 16;
+	int32 grade = 17;
+	int64 experience = 18;
+	int32 state = 19;
+	int32 page = 20;
+	int32 pageSize = 21;
+	string orderBy = 22;
+  string nickName = 23;
+  string account = 24;
+  string avatar = 25;
+  string text = 26;
+  int32 attack = 27;
+  int32 currentPoint = 28;
+  int64 gradeExperience = 29;
+  int32 powerValue = 30;
+}
+
+message CharactersReply {
+  int32 code = 1;
+  string message = 2;
+  repeated Characters data = 3;
+  Characters characters = 4;
+}

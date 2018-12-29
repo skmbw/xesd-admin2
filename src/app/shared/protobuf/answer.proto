@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+import "images.proto";
+import "question.proto";
+
+package com.xueershangda.tianxun.answer.model;
+
+message Answer {
+	string id = 1;
+	string summary = 2;
+	double income = 3;
+	bool platform = 4;
+	string answerUserId = 5;
+	int64 answerDate = 6;
+	string questionId = 7;
+	int32 accept = 8;
+	int32 orders = 9;
+	int32 state = 10;
+	bool open = 11;
+	bool full = 12;
+	string content = 13;
+	int64 focusNumber = 14;
+	int64 loveNumber = 15;
+	int64 despiseNumber = 16;
+	int32 page = 17;
+	int32 pageSize = 18;
+	string orderBy = 19;
+  string nickName = 20;
+  string avatar = 21;
+  string account = 22;
+  string password = 23;
+  repeated Images fileList = 24;
+  string targetId = 25;
+  string ownerId = 26;
+}
+
+message AnswerReply {
+  int32 code = 1;
+  string message = 2;
+  repeated Answer data = 3;
+  Question question = 4;
+}

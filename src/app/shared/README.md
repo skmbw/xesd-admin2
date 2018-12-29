@@ -28,3 +28,8 @@
 │   │   ├── index.ts
 │   │   ├── README.md
 ```
+## 生成protbuf的model
+将多个proto文件生成一个js文件
+* pbjs -t static-module -w commonjs -o protobuf-model.js account_detail.proto answer.proto content.proto follow.proto platform_detail.proto score_detail.proto user.proto account.proto article.proto dialogue.proto orders.proto images.proto score.proto answer_file.proto comment.proto favorite.proto platform_account.proto question.proto tags.proto equipment.proto characters.proto virtual_items.proto category.proto
+* pbts -o protobuf-model.d.ts protobuf-model.js
+将生成的bundled.js 生成typescript的文件bundled.d.ts

@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package com.xueershangda.tianxun.answer.model;
+
+message AnswerFile {
+	string id = 1;
+	string answerId = 2;
+	string filePath = 3;
+	int64 createDate = 4;
+	string type = 5;
+	int32 page = 6;
+	int32 pageSize = 7;
+	string orderBy = 8;
+
+}

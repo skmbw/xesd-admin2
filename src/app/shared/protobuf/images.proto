@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.xueershangda.tianxun.article.model;
+
+message Images {
+	string id = 1;
+	string targetId = 2;
+	string filePath = 3;
+	int64 createDate = 4;
+	string type = 5;
+	int32 source = 6;
+	int32 page = 7;
+	int32 pageSize = 8;
+	string orderBy = 9;
+  string name = 10;
+  string url = 11;
+}
