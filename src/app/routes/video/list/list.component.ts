@@ -43,7 +43,7 @@ export class VideoListComponent implements OnInit {
           }
         },
         { // 这种方式打开modal为什么不能正确的传递参数呢？因为bug，没有取modal这个参数，导致参数名是undefined。
-          // 默认传递的参数是改行记录。
+          // 默认传递的参数是该行记录。
           text: '编辑',
           type: 'static',
           component: VideoListEditComponent // 默认将当前行记录record传进去作为参数
