@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {NzMessageService, NzModalRef, UploadChangeParam} from 'ng-zorro-antd';
+import {NzMessageService, NzModalRef} from 'ng-zorro-antd';
 import {_HttpClient} from '@delon/theme';
 import {SFSchema, SFUISchema} from '@delon/form';
-import {Observable} from 'rxjs/index';
 
 @Component({
   selector: 'video-list-edit',
@@ -17,7 +16,20 @@ export class VideoListEditComponent implements OnInit {
       owner: { type: 'string', title: '姓名', maxLength: 15 },
       callNo: { type: 'number', title: '调用次数' },
       href: { type: 'string', title: '链接', format: 'uri' },
-      coverImage: { type: 'string', title: '预览图片' },
+      coverImage: { type: 'string', title: '预览图片',
+        // enum: [ // enum中的静态数据会以a标签展示，后面上传的是span标签
+        //   // {
+        //   //   // uid: -1,
+        //   //   // name: 'xxx.png',
+        //   //   // status: 'done',
+        //   //   // url:
+        //   //   //   'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        //   //   // response: {
+        //   //   //   resourceId: 1,
+        //   //   // }
+        //   // }
+        // ]
+      },
       description: { type: 'string', title: '描述', maxLength: 140 },
     },
     required: ['owner', 'callNo', 'href', 'coverImage', 'description'],
@@ -39,26 +51,33 @@ export class VideoListEditComponent implements OnInit {
       name: 'coverImage',
       fileType: 'image/png,image/jpeg,image/gif,image/bmp',
       fileSize: 2048,
-      resReName: 'message',
-      change: (args: UploadChangeParam) => {
-        // console.log(JSON.stringify(args));
-        if (args.type === 'success') {
-          this.ui.$coverImage.asyncData(args.file);
-        }
-      },
-      asyncData: (data?: any) => {
-        if (data !== undefined) {
-          console.log(JSON.stringify(data));
-          // const type: SFSchemaEnumType[] = [];
-          return Observable.create((observer) => {
-            data.url = 'aaaa';
-            observer.next(data);
-          });
-        } else {
-          return Observable.create(() => {
-          });
-        }
-      }
+      resReName: 'resourceId',
+      // change: (args: UploadChangeParam) => {
+      //   // console.log(JSON.stringify(args));
+      //   if (args.type === 'success') {
+      //     // this.ui.$coverImage.asyncData(args.file);
+      //     console.log('changed.');
+      //     const reply = args.file;
+      //     const response = reply.response;
+      //
+      //     reply.url = response.url;
+      //     // this.schema.properties.coverImage.enum[0] = reply;
+      //   }
+      // },
+      listType: 'picture'
+      // asyncData: (data?: any) => {
+      //   if (data !== undefined) {
+      //     console.log(JSON.stringify(data));
+      //     // const type: SFSchemaEnumType[] = [];
+      //     return Observable.create((observer) => {
+      //       data.url = 'aaaa';
+      //       observer.next(data);
+      //     });
+      //   } else {
+      //     return Observable.create(() => {
+      //     });
+      //   }
+      // }
     },
     $description: {
       widget: 'textarea',
