@@ -64,7 +64,8 @@ export class VideoListEditComponent implements OnInit {
       //     // this.schema.properties.coverImage.enum[0] = reply;
       //   }
       // },
-      listType: 'picture'
+      listType: 'picture',
+      data: {'videoType': '1'}
       // asyncData: (data?: any) => {
       //   if (data !== undefined) {
       //     console.log(JSON.stringify(data));
