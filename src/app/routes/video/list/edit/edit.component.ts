@@ -167,8 +167,8 @@ export class VideoListEditComponent implements OnInit {
     //   this.msgSrv.success('保存成功');
     //   this.modal.close(true);
     // });
-    if (JsUtils.isBlank(value.id)) {
-      value.id = value.coverImage | value.video;
+    if (value.id === 0 || JsUtils.isBlank(value.id)) {
+      value.id = this.record.id;
     }
     this.videoService.save(value as Video).subscribe(result => {
       const uint8Array = new Uint8Array(result, 0, result.byteLength);
