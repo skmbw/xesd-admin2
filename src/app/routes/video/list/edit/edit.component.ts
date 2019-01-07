@@ -1,7 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {NzMessageService, NzModalRef} from 'ng-zorro-antd';
+import {NzMessageService, NzModalRef, UploadChangeParam, UploadFile} from 'ng-zorro-antd';
 import {_HttpClient} from '@delon/theme';
 import {SFSchema, SFUISchema} from '@delon/form';
+import {VideoService} from '../../../service/video.service';
+import {com} from '@shared/protobuf/model';
+import {Consts} from '@shared/utils/consts';
+import {JsUtils} from '@shared/utils/js-utils';
+import Video = com.xueershangda.tianxun.video.model.Video;
+import VideoReply = com.xueershangda.tianxun.video.model.VideoReply;
 
 @Component({
   selector: 'video-list-edit',
@@ -13,10 +19,18 @@ export class VideoListEditComponent implements OnInit {
   schema: SFSchema = {
     properties: {
       no: { type: 'string', title: '编号' },
-      owner: { type: 'string', title: '姓名', maxLength: 15 },
-      callNo: { type: 'number', title: '调用次数' },
-      href: { type: 'string', title: '链接', format: 'uri' },
-      coverImage: { type: 'string', title: '预览图片',
+      title: { type: 'string', title: '标题', maxLength: 200 },
+      summary: { type: 'string', title: '简介' },
+      price: { type: 'number', title: '价格', default: 0 },
+      free: { type: 'boolean', title: '是否免费',
+        enum: [
+          { label: '收费', value: false },
+          { label: '免费', value: true }
+        ],
+        default: true,
+      },
+      url: { type: 'string', title: '链接', format: 'uri' },
+      coverImage: { type: 'string', title: '封面图片',
         // enum: [ // enum中的静态数据会以a标签展示，后面上传的是span标签
         //   // {
         //   //   // uid: -1,
@@ -30,9 +44,10 @@ export class VideoListEditComponent implements OnInit {
         //   // }
         // ]
       },
-      description: { type: 'string', title: '描述', maxLength: 140 },
+      video: { type: 'string', title: '视频文件'},
+      description: { type: 'string', title: '描述', maxLength: 140 }
     },
-    required: ['owner', 'callNo', 'href', 'coverImage', 'description'],
+    required: ['title', 'price', 'free', 'url', 'coverImage', 'video'],
   };
   ui: SFUISchema = {
     '*': {
@@ -42,8 +57,22 @@ export class VideoListEditComponent implements OnInit {
     $no: {
       widget: 'text'
     },
-    $href: {
+    $title: {
       widget: 'string',
+    },
+    $summary: {
+      widget: 'textarea',
+      grid: { span: 24 },
+    },
+    $price: {
+      widget: 'number',
+    },
+    $free: {
+      widget: 'select',
+    },
+    $url: {
+      widget: 'string',
+      grid: { span: 24 }
     },
     $coverImage: {
       widget: 'upload',
@@ -51,21 +80,30 @@ export class VideoListEditComponent implements OnInit {
       name: 'coverImage',
       fileType: 'image/png,image/jpeg,image/gif,image/bmp',
       fileSize: 2048,
-      resReName: 'resourceId',
-      // change: (args: UploadChangeParam) => {
-      //   // console.log(JSON.stringify(args));
-      //   if (args.type === 'success') {
-      //     // this.ui.$coverImage.asyncData(args.file);
-      //     console.log('changed.');
-      //     const reply = args.file;
-      //     const response = reply.response;
-      //
-      //     reply.url = response.url;
-      //     // this.schema.properties.coverImage.enum[0] = reply;
-      //   }
-      // },
+      resReName: 'resourceId', // 这个字段的值会赋值给coverImage，当保存时用来关联上传的文件和该记录
+      change: (args: UploadChangeParam) => {
+        // console.log(JSON.stringify(args));
+        if (args.type === 'success') {
+          // this.ui.$coverImage.asyncData(args.file);
+          // console.log('changed.');
+          const reply = args.file;
+          const response = reply.response;
+          if (response.code !== 1) { // 提示信息
+            this.msgSrv.error(response.message);
+          } else {
+            if (JsUtils.isBlank(this.record.id)) {
+              this.record.id = response.resourceId;
+            }
+          }
+          // reply.url = response.url;
+          // this.schema.properties.coverImage.enum[0] = reply;
+        }
+      },
       listType: 'picture',
-      data: {'videoType': '1'}
+      data: (upload: UploadFile) => {
+        const id = JsUtils.isBlank(this.record.id) ? '' : this.record.id;
+        return {'videoType': '1', 'id': id};
+      }
       // asyncData: (data?: any) => {
       //   if (data !== undefined) {
       //     console.log(JSON.stringify(data));
@@ -80,30 +118,67 @@ export class VideoListEditComponent implements OnInit {
       //   }
       // }
     },
+    $video: {
+      widget: 'upload',
+      action: 'http://localhost:8775/video/upload',
+      name: 'video',
+      fileType: 'video/mp4',
+      resReName: 'videoId', // 这个字段的值会赋值给video，当保存时用来关联上传的文件和该记录
+      data: (upload: UploadFile) => { // 要用回调，静态的话，当更新了数据，里面的数据也不会更新
+        const id = JsUtils.isBlank(this.record.id) ? '' : this.record.id;
+        return {'videoType': '2', 'id': id};
+      },
+      change: (args: UploadChangeParam) => {
+        if (args.type === 'success') {
+          const reply = args.file;
+          const response = reply.response;
+          if (response.code !== 1) {
+            this.msgSrv.error(response.message);
+          } else {
+            if (JsUtils.isBlank(this.record.id)) {
+              this.record.id = response.videoId;
+            }
+          }
+        }
+      }
+    },
     $description: {
       widget: 'textarea',
-      grid: { span: 24 },
-    },
+      grid: { span: 24 }
+    }
   };
 
   constructor(
     private modal: NzModalRef,
     private msgSrv: NzMessageService,
     public http: _HttpClient,
-  ) {}
+    private videoService: VideoService
+  ) {
+  }
 
   ngOnInit(): void {
-    // alert(this.i);
-    // alert(this.record);
     // alert(this.record.id); // this.undefined就是穿过来的参数，但是table.js._btnClick中的bug，没有设置或取到参数名导致
     if (this.record.id > 0)
-      this.http.get(`/user/${this.record.id}`).subscribe(res => (this.i = res));
+      this.http.get(Consts.URL + `/video/detail/${this.record.id}`).subscribe(res => (this.i = res));
   }
 
   save(value: any) {
-    this.http.post(`/user/${this.record.id}`, value).subscribe(res => {
-      this.msgSrv.success('保存成功');
-      this.modal.close(true);
+    // this.http.post(`/user/${this.record.id}`, value).subscribe(res => {
+    //   this.msgSrv.success('保存成功');
+    //   this.modal.close(true);
+    // });
+    if (JsUtils.isBlank(value.id)) {
+      value.id = value.coverImage | value.video;
+    }
+    this.videoService.save(value as Video).subscribe(result => {
+      const uint8Array = new Uint8Array(result, 0, result.byteLength);
+      const reply = VideoReply.decode(uint8Array);
+      if (reply.code === 1) {
+        this.msgSrv.success('保存成功');
+        this.modal.close(true);
+      } else {
+        this.msgSrv.error(reply.message);
+      }
     });
   }
 
