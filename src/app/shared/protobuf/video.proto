@@ -1,0 +1,118 @@
+syntax = "proto3";
+
+package com.xueershangda.tianxun.video.model;
+
+message Video {
+  string id = 1;
+  /**
+     * 视频标题
+     */
+  string title = 2;
+  /**
+   * 视频url
+   */
+  string url = 3;
+  /**
+   * 视频封面
+   */
+  string image = 4;
+  /**
+   * 视频简介
+   */
+  string summary = 5;
+  /**
+   * 创建时间
+   */
+  int64 createDate = 6;
+  /**
+   * 更新时间
+   */
+  int64 updateDate = 7;
+  /**
+   * 价格
+   */
+  double price = 8;
+  /**
+   * 免费时长
+   */
+  int32 freeTime = 9;
+  /**
+   * 是否免费
+   */
+  bool free = 10;
+  /**
+   * 销售数
+   */
+  int32 number = 11;
+  /**
+   * 点赞数
+   */
+  int32 loveNumber = 12;
+  /**
+   * 关注数
+   */
+  int32 focusNumber = 13;
+  /**
+   * 鄙视数
+   */
+  int32 despiseNumber = 14;
+  /**
+   * 状态
+   */
+  int32 state = 15;
+  /**
+   * 分类
+   */
+  string category = 16;
+  /**
+   * 广告语
+   */
+  string ads = 17;
+  /**
+   * 备注
+   */
+  string remark = 18;
+  /**
+   * 用户id/平台
+   */
+  string userId = 19;
+  /**
+   * 视频类型
+   */
+  string videoType = 20;
+  /**
+   * 备用2
+   */
+  int32 backup2 = 21;
+  /**
+   * 预览url，试看
+   */
+  string previewUrl = 22;
+
+  /**
+   * order by 排序语句
+   */
+  string orderBy = 23;
+
+  /**
+   * 分页开始记录
+   */
+  int32 start = 24;
+
+  /**
+   * 页码
+   */
+  int32 page = 25;
+
+  /**
+   * 分页大小
+   */
+  int32 pageSize = 26;
+}
+
+message VideoReply {
+  int32 code = 1;
+  string message = 2;
+  repeated Video data = 3;
+  Video video = 4;
+}

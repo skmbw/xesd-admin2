@@ -17505,6 +17505,1077 @@ $root.com = (function() {
                 return game;
             })();
 
+            tianxun.video = (function() {
+
+                /**
+                 * Namespace video.
+                 * @memberof com.xueershangda.tianxun
+                 * @namespace
+                 */
+                var video = {};
+
+                video.model = (function() {
+
+                    /**
+                     * Namespace model.
+                     * @memberof com.xueershangda.tianxun.video
+                     * @namespace
+                     */
+                    var model = {};
+
+                    model.Video = (function() {
+
+                        /**
+                         * Properties of a Video.
+                         * @memberof com.xueershangda.tianxun.video.model
+                         * @interface IVideo
+                         * @property {string|null} [id] Video id
+                         * @property {string|null} [title] 视频标题
+                         * @property {string|null} [url] 视频url
+                         * @property {string|null} [image] 视频封面
+                         * @property {string|null} [summary] 视频简介
+                         * @property {number|Long|null} [createDate] 创建时间
+                         * @property {number|Long|null} [updateDate] 更新时间
+                         * @property {number|null} [price] 价格
+                         * @property {number|null} [freeTime] 免费时长
+                         * @property {boolean|null} [free] 是否免费
+                         * @property {number|null} [number] 销售数
+                         * @property {number|null} [loveNumber] 点赞数
+                         * @property {number|null} [focusNumber] 关注数
+                         * @property {number|null} [despiseNumber] 鄙视数
+                         * @property {number|null} [state] 状态
+                         * @property {string|null} [category] 分类
+                         * @property {string|null} [ads] 广告语
+                         * @property {string|null} [remark] 备注
+                         * @property {string|null} [userId] 用户id/平台
+                         * @property {string|null} [videoType] 视频类型
+                         * @property {number|null} [backup2] 备用2
+                         * @property {string|null} [previewUrl] 预览url，试看
+                         * @property {string|null} [orderBy] order by 排序语句
+                         * @property {number|null} [start] 分页开始记录
+                         * @property {number|null} [page] 页码
+                         * @property {number|null} [pageSize] 分页大小
+                         */
+
+                        /**
+                         * Constructs a new Video.
+                         * @memberof com.xueershangda.tianxun.video.model
+                         * @classdesc Represents a Video.
+                         * @implements IVideo
+                         * @constructor
+                         * @param {com.xueershangda.tianxun.video.model.IVideo=} [properties] Properties to set
+                         */
+                        function Video(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+
+                        /**
+                         * Video id.
+                         * @member {string} id
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @instance
+                         */
+                        Video.prototype.id = "";
+
+                        /**
+                         * 视频标题
+                         * @member {string} title
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @instance
+                         */
+                        Video.prototype.title = "";
+
+                        /**
+                         * 视频url
+                         * @member {string} url
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @instance
+                         */
+                        Video.prototype.url = "";
+
+                        /**
+                         * 视频封面
+                         * @member {string} image
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @instance
+                         */
+                        Video.prototype.image = "";
+
+                        /**
+                         * 视频简介
+                         * @member {string} summary
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @instance
+                         */
+                        Video.prototype.summary = "";
+
+                        /**
+                         * 创建时间
+                         * @member {number|Long} createDate
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @instance
+                         */
+                        Video.prototype.createDate = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+                        /**
+                         * 更新时间
+                         * @member {number|Long} updateDate
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @instance
+                         */
+                        Video.prototype.updateDate = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
+
+                        /**
+                         * 价格
+                         * @member {number} price
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @instance
+                         */
+                        Video.prototype.price = 0;
+
+                        /**
+                         * 免费时长
+                         * @member {number} freeTime
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @instance
+                         */
+                        Video.prototype.freeTime = 0;
+
+                        /**
+                         * 是否免费
+                         * @member {boolean} free
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @instance
+                         */
+                        Video.prototype.free = false;
+
+                        /**
+                         * 销售数
+                         * @member {number} number
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @instance
+                         */
+                        Video.prototype.number = 0;
+
+                        /**
+                         * 点赞数
+                         * @member {number} loveNumber
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @instance
+                         */
+                        Video.prototype.loveNumber = 0;
+
+                        /**
+                         * 关注数
+                         * @member {number} focusNumber
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @instance
+                         */
+                        Video.prototype.focusNumber = 0;
+
+                        /**
+                         * 鄙视数
+                         * @member {number} despiseNumber
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @instance
+                         */
+                        Video.prototype.despiseNumber = 0;
+
+                        /**
+                         * 状态
+                         * @member {number} state
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @instance
+                         */
+                        Video.prototype.state = 0;
+
+                        /**
+                         * 分类
+                         * @member {string} category
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @instance
+                         */
+                        Video.prototype.category = "";
+
+                        /**
+                         * 广告语
+                         * @member {string} ads
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @instance
+                         */
+                        Video.prototype.ads = "";
+
+                        /**
+                         * 备注
+                         * @member {string} remark
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @instance
+                         */
+                        Video.prototype.remark = "";
+
+                        /**
+                         * 用户id/平台
+                         * @member {string} userId
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @instance
+                         */
+                        Video.prototype.userId = "";
+
+                        /**
+                         * 视频类型
+                         * @member {string} videoType
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @instance
+                         */
+                        Video.prototype.videoType = "";
+
+                        /**
+                         * 备用2
+                         * @member {number} backup2
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @instance
+                         */
+                        Video.prototype.backup2 = 0;
+
+                        /**
+                         * 预览url，试看
+                         * @member {string} previewUrl
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @instance
+                         */
+                        Video.prototype.previewUrl = "";
+
+                        /**
+                         * order by 排序语句
+                         * @member {string} orderBy
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @instance
+                         */
+                        Video.prototype.orderBy = "";
+
+                        /**
+                         * 分页开始记录
+                         * @member {number} start
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @instance
+                         */
+                        Video.prototype.start = 0;
+
+                        /**
+                         * 页码
+                         * @member {number} page
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @instance
+                         */
+                        Video.prototype.page = 0;
+
+                        /**
+                         * 分页大小
+                         * @member {number} pageSize
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @instance
+                         */
+                        Video.prototype.pageSize = 0;
+
+                        /**
+                         * Creates a new Video instance using the specified properties.
+                         * @function create
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @static
+                         * @param {com.xueershangda.tianxun.video.model.IVideo=} [properties] Properties to set
+                         * @returns {com.xueershangda.tianxun.video.model.Video} Video instance
+                         */
+                        Video.create = function create(properties) {
+                            return new Video(properties);
+                        };
+
+                        /**
+                         * Encodes the specified Video message. Does not implicitly {@link com.xueershangda.tianxun.video.model.Video.verify|verify} messages.
+                         * @function encode
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @static
+                         * @param {com.xueershangda.tianxun.video.model.IVideo} message Video message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        Video.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.id != null && message.hasOwnProperty("id"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+                            if (message.title != null && message.hasOwnProperty("title"))
+                                writer.uint32(/* id 2, wireType 2 =*/18).string(message.title);
+                            if (message.url != null && message.hasOwnProperty("url"))
+                                writer.uint32(/* id 3, wireType 2 =*/26).string(message.url);
+                            if (message.image != null && message.hasOwnProperty("image"))
+                                writer.uint32(/* id 4, wireType 2 =*/34).string(message.image);
+                            if (message.summary != null && message.hasOwnProperty("summary"))
+                                writer.uint32(/* id 5, wireType 2 =*/42).string(message.summary);
+                            if (message.createDate != null && message.hasOwnProperty("createDate"))
+                                writer.uint32(/* id 6, wireType 0 =*/48).int64(message.createDate);
+                            if (message.updateDate != null && message.hasOwnProperty("updateDate"))
+                                writer.uint32(/* id 7, wireType 0 =*/56).int64(message.updateDate);
+                            if (message.price != null && message.hasOwnProperty("price"))
+                                writer.uint32(/* id 8, wireType 1 =*/65).double(message.price);
+                            if (message.freeTime != null && message.hasOwnProperty("freeTime"))
+                                writer.uint32(/* id 9, wireType 0 =*/72).int32(message.freeTime);
+                            if (message.free != null && message.hasOwnProperty("free"))
+                                writer.uint32(/* id 10, wireType 0 =*/80).bool(message.free);
+                            if (message.number != null && message.hasOwnProperty("number"))
+                                writer.uint32(/* id 11, wireType 0 =*/88).int32(message.number);
+                            if (message.loveNumber != null && message.hasOwnProperty("loveNumber"))
+                                writer.uint32(/* id 12, wireType 0 =*/96).int32(message.loveNumber);
+                            if (message.focusNumber != null && message.hasOwnProperty("focusNumber"))
+                                writer.uint32(/* id 13, wireType 0 =*/104).int32(message.focusNumber);
+                            if (message.despiseNumber != null && message.hasOwnProperty("despiseNumber"))
+                                writer.uint32(/* id 14, wireType 0 =*/112).int32(message.despiseNumber);
+                            if (message.state != null && message.hasOwnProperty("state"))
+                                writer.uint32(/* id 15, wireType 0 =*/120).int32(message.state);
+                            if (message.category != null && message.hasOwnProperty("category"))
+                                writer.uint32(/* id 16, wireType 2 =*/130).string(message.category);
+                            if (message.ads != null && message.hasOwnProperty("ads"))
+                                writer.uint32(/* id 17, wireType 2 =*/138).string(message.ads);
+                            if (message.remark != null && message.hasOwnProperty("remark"))
+                                writer.uint32(/* id 18, wireType 2 =*/146).string(message.remark);
+                            if (message.userId != null && message.hasOwnProperty("userId"))
+                                writer.uint32(/* id 19, wireType 2 =*/154).string(message.userId);
+                            if (message.videoType != null && message.hasOwnProperty("videoType"))
+                                writer.uint32(/* id 20, wireType 2 =*/162).string(message.videoType);
+                            if (message.backup2 != null && message.hasOwnProperty("backup2"))
+                                writer.uint32(/* id 21, wireType 0 =*/168).int32(message.backup2);
+                            if (message.previewUrl != null && message.hasOwnProperty("previewUrl"))
+                                writer.uint32(/* id 22, wireType 2 =*/178).string(message.previewUrl);
+                            if (message.orderBy != null && message.hasOwnProperty("orderBy"))
+                                writer.uint32(/* id 23, wireType 2 =*/186).string(message.orderBy);
+                            if (message.start != null && message.hasOwnProperty("start"))
+                                writer.uint32(/* id 24, wireType 0 =*/192).int32(message.start);
+                            if (message.page != null && message.hasOwnProperty("page"))
+                                writer.uint32(/* id 25, wireType 0 =*/200).int32(message.page);
+                            if (message.pageSize != null && message.hasOwnProperty("pageSize"))
+                                writer.uint32(/* id 26, wireType 0 =*/208).int32(message.pageSize);
+                            return writer;
+                        };
+
+                        /**
+                         * Encodes the specified Video message, length delimited. Does not implicitly {@link com.xueershangda.tianxun.video.model.Video.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @static
+                         * @param {com.xueershangda.tianxun.video.model.IVideo} message Video message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        Video.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+
+                        /**
+                         * Decodes a Video message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {com.xueershangda.tianxun.video.model.Video} Video
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        Video.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.com.xueershangda.tianxun.video.model.Video();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                case 1:
+                                    message.id = reader.string();
+                                    break;
+                                case 2:
+                                    message.title = reader.string();
+                                    break;
+                                case 3:
+                                    message.url = reader.string();
+                                    break;
+                                case 4:
+                                    message.image = reader.string();
+                                    break;
+                                case 5:
+                                    message.summary = reader.string();
+                                    break;
+                                case 6:
+                                    message.createDate = reader.int64();
+                                    break;
+                                case 7:
+                                    message.updateDate = reader.int64();
+                                    break;
+                                case 8:
+                                    message.price = reader.double();
+                                    break;
+                                case 9:
+                                    message.freeTime = reader.int32();
+                                    break;
+                                case 10:
+                                    message.free = reader.bool();
+                                    break;
+                                case 11:
+                                    message.number = reader.int32();
+                                    break;
+                                case 12:
+                                    message.loveNumber = reader.int32();
+                                    break;
+                                case 13:
+                                    message.focusNumber = reader.int32();
+                                    break;
+                                case 14:
+                                    message.despiseNumber = reader.int32();
+                                    break;
+                                case 15:
+                                    message.state = reader.int32();
+                                    break;
+                                case 16:
+                                    message.category = reader.string();
+                                    break;
+                                case 17:
+                                    message.ads = reader.string();
+                                    break;
+                                case 18:
+                                    message.remark = reader.string();
+                                    break;
+                                case 19:
+                                    message.userId = reader.string();
+                                    break;
+                                case 20:
+                                    message.videoType = reader.string();
+                                    break;
+                                case 21:
+                                    message.backup2 = reader.int32();
+                                    break;
+                                case 22:
+                                    message.previewUrl = reader.string();
+                                    break;
+                                case 23:
+                                    message.orderBy = reader.string();
+                                    break;
+                                case 24:
+                                    message.start = reader.int32();
+                                    break;
+                                case 25:
+                                    message.page = reader.int32();
+                                    break;
+                                case 26:
+                                    message.pageSize = reader.int32();
+                                    break;
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Decodes a Video message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {com.xueershangda.tianxun.video.model.Video} Video
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        Video.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+
+                        /**
+                         * Verifies a Video message.
+                         * @function verify
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        Video.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.id != null && message.hasOwnProperty("id"))
+                                if (!$util.isString(message.id))
+                                    return "id: string expected";
+                            if (message.title != null && message.hasOwnProperty("title"))
+                                if (!$util.isString(message.title))
+                                    return "title: string expected";
+                            if (message.url != null && message.hasOwnProperty("url"))
+                                if (!$util.isString(message.url))
+                                    return "url: string expected";
+                            if (message.image != null && message.hasOwnProperty("image"))
+                                if (!$util.isString(message.image))
+                                    return "image: string expected";
+                            if (message.summary != null && message.hasOwnProperty("summary"))
+                                if (!$util.isString(message.summary))
+                                    return "summary: string expected";
+                            if (message.createDate != null && message.hasOwnProperty("createDate"))
+                                if (!$util.isInteger(message.createDate) && !(message.createDate && $util.isInteger(message.createDate.low) && $util.isInteger(message.createDate.high)))
+                                    return "createDate: integer|Long expected";
+                            if (message.updateDate != null && message.hasOwnProperty("updateDate"))
+                                if (!$util.isInteger(message.updateDate) && !(message.updateDate && $util.isInteger(message.updateDate.low) && $util.isInteger(message.updateDate.high)))
+                                    return "updateDate: integer|Long expected";
+                            if (message.price != null && message.hasOwnProperty("price"))
+                                if (typeof message.price !== "number")
+                                    return "price: number expected";
+                            if (message.freeTime != null && message.hasOwnProperty("freeTime"))
+                                if (!$util.isInteger(message.freeTime))
+                                    return "freeTime: integer expected";
+                            if (message.free != null && message.hasOwnProperty("free"))
+                                if (typeof message.free !== "boolean")
+                                    return "free: boolean expected";
+                            if (message.number != null && message.hasOwnProperty("number"))
+                                if (!$util.isInteger(message.number))
+                                    return "number: integer expected";
+                            if (message.loveNumber != null && message.hasOwnProperty("loveNumber"))
+                                if (!$util.isInteger(message.loveNumber))
+                                    return "loveNumber: integer expected";
+                            if (message.focusNumber != null && message.hasOwnProperty("focusNumber"))
+                                if (!$util.isInteger(message.focusNumber))
+                                    return "focusNumber: integer expected";
+                            if (message.despiseNumber != null && message.hasOwnProperty("despiseNumber"))
+                                if (!$util.isInteger(message.despiseNumber))
+                                    return "despiseNumber: integer expected";
+                            if (message.state != null && message.hasOwnProperty("state"))
+                                if (!$util.isInteger(message.state))
+                                    return "state: integer expected";
+                            if (message.category != null && message.hasOwnProperty("category"))
+                                if (!$util.isString(message.category))
+                                    return "category: string expected";
+                            if (message.ads != null && message.hasOwnProperty("ads"))
+                                if (!$util.isString(message.ads))
+                                    return "ads: string expected";
+                            if (message.remark != null && message.hasOwnProperty("remark"))
+                                if (!$util.isString(message.remark))
+                                    return "remark: string expected";
+                            if (message.userId != null && message.hasOwnProperty("userId"))
+                                if (!$util.isString(message.userId))
+                                    return "userId: string expected";
+                            if (message.videoType != null && message.hasOwnProperty("videoType"))
+                                if (!$util.isString(message.videoType))
+                                    return "videoType: string expected";
+                            if (message.backup2 != null && message.hasOwnProperty("backup2"))
+                                if (!$util.isInteger(message.backup2))
+                                    return "backup2: integer expected";
+                            if (message.previewUrl != null && message.hasOwnProperty("previewUrl"))
+                                if (!$util.isString(message.previewUrl))
+                                    return "previewUrl: string expected";
+                            if (message.orderBy != null && message.hasOwnProperty("orderBy"))
+                                if (!$util.isString(message.orderBy))
+                                    return "orderBy: string expected";
+                            if (message.start != null && message.hasOwnProperty("start"))
+                                if (!$util.isInteger(message.start))
+                                    return "start: integer expected";
+                            if (message.page != null && message.hasOwnProperty("page"))
+                                if (!$util.isInteger(message.page))
+                                    return "page: integer expected";
+                            if (message.pageSize != null && message.hasOwnProperty("pageSize"))
+                                if (!$util.isInteger(message.pageSize))
+                                    return "pageSize: integer expected";
+                            return null;
+                        };
+
+                        /**
+                         * Creates a Video message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {com.xueershangda.tianxun.video.model.Video} Video
+                         */
+                        Video.fromObject = function fromObject(object) {
+                            if (object instanceof $root.com.xueershangda.tianxun.video.model.Video)
+                                return object;
+                            var message = new $root.com.xueershangda.tianxun.video.model.Video();
+                            if (object.id != null)
+                                message.id = String(object.id);
+                            if (object.title != null)
+                                message.title = String(object.title);
+                            if (object.url != null)
+                                message.url = String(object.url);
+                            if (object.image != null)
+                                message.image = String(object.image);
+                            if (object.summary != null)
+                                message.summary = String(object.summary);
+                            if (object.createDate != null)
+                                if ($util.Long)
+                                    (message.createDate = $util.Long.fromValue(object.createDate)).unsigned = false;
+                                else if (typeof object.createDate === "string")
+                                    message.createDate = parseInt(object.createDate, 10);
+                                else if (typeof object.createDate === "number")
+                                    message.createDate = object.createDate;
+                                else if (typeof object.createDate === "object")
+                                    message.createDate = new $util.LongBits(object.createDate.low >>> 0, object.createDate.high >>> 0).toNumber();
+                            if (object.updateDate != null)
+                                if ($util.Long)
+                                    (message.updateDate = $util.Long.fromValue(object.updateDate)).unsigned = false;
+                                else if (typeof object.updateDate === "string")
+                                    message.updateDate = parseInt(object.updateDate, 10);
+                                else if (typeof object.updateDate === "number")
+                                    message.updateDate = object.updateDate;
+                                else if (typeof object.updateDate === "object")
+                                    message.updateDate = new $util.LongBits(object.updateDate.low >>> 0, object.updateDate.high >>> 0).toNumber();
+                            if (object.price != null)
+                                message.price = Number(object.price);
+                            if (object.freeTime != null)
+                                message.freeTime = object.freeTime | 0;
+                            if (object.free != null)
+                                message.free = Boolean(object.free);
+                            if (object.number != null)
+                                message.number = object.number | 0;
+                            if (object.loveNumber != null)
+                                message.loveNumber = object.loveNumber | 0;
+                            if (object.focusNumber != null)
+                                message.focusNumber = object.focusNumber | 0;
+                            if (object.despiseNumber != null)
+                                message.despiseNumber = object.despiseNumber | 0;
+                            if (object.state != null)
+                                message.state = object.state | 0;
+                            if (object.category != null)
+                                message.category = String(object.category);
+                            if (object.ads != null)
+                                message.ads = String(object.ads);
+                            if (object.remark != null)
+                                message.remark = String(object.remark);
+                            if (object.userId != null)
+                                message.userId = String(object.userId);
+                            if (object.videoType != null)
+                                message.videoType = String(object.videoType);
+                            if (object.backup2 != null)
+                                message.backup2 = object.backup2 | 0;
+                            if (object.previewUrl != null)
+                                message.previewUrl = String(object.previewUrl);
+                            if (object.orderBy != null)
+                                message.orderBy = String(object.orderBy);
+                            if (object.start != null)
+                                message.start = object.start | 0;
+                            if (object.page != null)
+                                message.page = object.page | 0;
+                            if (object.pageSize != null)
+                                message.pageSize = object.pageSize | 0;
+                            return message;
+                        };
+
+                        /**
+                         * Creates a plain object from a Video message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @static
+                         * @param {com.xueershangda.tianxun.video.model.Video} message Video
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        Video.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.id = "";
+                                object.title = "";
+                                object.url = "";
+                                object.image = "";
+                                object.summary = "";
+                                if ($util.Long) {
+                                    var long = new $util.Long(0, 0, false);
+                                    object.createDate = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                                } else
+                                    object.createDate = options.longs === String ? "0" : 0;
+                                if ($util.Long) {
+                                    var long = new $util.Long(0, 0, false);
+                                    object.updateDate = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
+                                } else
+                                    object.updateDate = options.longs === String ? "0" : 0;
+                                object.price = 0;
+                                object.freeTime = 0;
+                                object.free = false;
+                                object.number = 0;
+                                object.loveNumber = 0;
+                                object.focusNumber = 0;
+                                object.despiseNumber = 0;
+                                object.state = 0;
+                                object.category = "";
+                                object.ads = "";
+                                object.remark = "";
+                                object.userId = "";
+                                object.videoType = "";
+                                object.backup2 = 0;
+                                object.previewUrl = "";
+                                object.orderBy = "";
+                                object.start = 0;
+                                object.page = 0;
+                                object.pageSize = 0;
+                            }
+                            if (message.id != null && message.hasOwnProperty("id"))
+                                object.id = message.id;
+                            if (message.title != null && message.hasOwnProperty("title"))
+                                object.title = message.title;
+                            if (message.url != null && message.hasOwnProperty("url"))
+                                object.url = message.url;
+                            if (message.image != null && message.hasOwnProperty("image"))
+                                object.image = message.image;
+                            if (message.summary != null && message.hasOwnProperty("summary"))
+                                object.summary = message.summary;
+                            if (message.createDate != null && message.hasOwnProperty("createDate"))
+                                if (typeof message.createDate === "number")
+                                    object.createDate = options.longs === String ? String(message.createDate) : message.createDate;
+                                else
+                                    object.createDate = options.longs === String ? $util.Long.prototype.toString.call(message.createDate) : options.longs === Number ? new $util.LongBits(message.createDate.low >>> 0, message.createDate.high >>> 0).toNumber() : message.createDate;
+                            if (message.updateDate != null && message.hasOwnProperty("updateDate"))
+                                if (typeof message.updateDate === "number")
+                                    object.updateDate = options.longs === String ? String(message.updateDate) : message.updateDate;
+                                else
+                                    object.updateDate = options.longs === String ? $util.Long.prototype.toString.call(message.updateDate) : options.longs === Number ? new $util.LongBits(message.updateDate.low >>> 0, message.updateDate.high >>> 0).toNumber() : message.updateDate;
+                            if (message.price != null && message.hasOwnProperty("price"))
+                                object.price = options.json && !isFinite(message.price) ? String(message.price) : message.price;
+                            if (message.freeTime != null && message.hasOwnProperty("freeTime"))
+                                object.freeTime = message.freeTime;
+                            if (message.free != null && message.hasOwnProperty("free"))
+                                object.free = message.free;
+                            if (message.number != null && message.hasOwnProperty("number"))
+                                object.number = message.number;
+                            if (message.loveNumber != null && message.hasOwnProperty("loveNumber"))
+                                object.loveNumber = message.loveNumber;
+                            if (message.focusNumber != null && message.hasOwnProperty("focusNumber"))
+                                object.focusNumber = message.focusNumber;
+                            if (message.despiseNumber != null && message.hasOwnProperty("despiseNumber"))
+                                object.despiseNumber = message.despiseNumber;
+                            if (message.state != null && message.hasOwnProperty("state"))
+                                object.state = message.state;
+                            if (message.category != null && message.hasOwnProperty("category"))
+                                object.category = message.category;
+                            if (message.ads != null && message.hasOwnProperty("ads"))
+                                object.ads = message.ads;
+                            if (message.remark != null && message.hasOwnProperty("remark"))
+                                object.remark = message.remark;
+                            if (message.userId != null && message.hasOwnProperty("userId"))
+                                object.userId = message.userId;
+                            if (message.videoType != null && message.hasOwnProperty("videoType"))
+                                object.videoType = message.videoType;
+                            if (message.backup2 != null && message.hasOwnProperty("backup2"))
+                                object.backup2 = message.backup2;
+                            if (message.previewUrl != null && message.hasOwnProperty("previewUrl"))
+                                object.previewUrl = message.previewUrl;
+                            if (message.orderBy != null && message.hasOwnProperty("orderBy"))
+                                object.orderBy = message.orderBy;
+                            if (message.start != null && message.hasOwnProperty("start"))
+                                object.start = message.start;
+                            if (message.page != null && message.hasOwnProperty("page"))
+                                object.page = message.page;
+                            if (message.pageSize != null && message.hasOwnProperty("pageSize"))
+                                object.pageSize = message.pageSize;
+                            return object;
+                        };
+
+                        /**
+                         * Converts this Video to JSON.
+                         * @function toJSON
+                         * @memberof com.xueershangda.tianxun.video.model.Video
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        Video.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+
+                        return Video;
+                    })();
+
+                    model.VideoReply = (function() {
+
+                        /**
+                         * Properties of a VideoReply.
+                         * @memberof com.xueershangda.tianxun.video.model
+                         * @interface IVideoReply
+                         * @property {number|null} [code] VideoReply code
+                         * @property {string|null} [message] VideoReply message
+                         * @property {Array.<com.xueershangda.tianxun.video.model.IVideo>|null} [data] VideoReply data
+                         * @property {com.xueershangda.tianxun.video.model.IVideo|null} [video] VideoReply video
+                         */
+
+                        /**
+                         * Constructs a new VideoReply.
+                         * @memberof com.xueershangda.tianxun.video.model
+                         * @classdesc Represents a VideoReply.
+                         * @implements IVideoReply
+                         * @constructor
+                         * @param {com.xueershangda.tianxun.video.model.IVideoReply=} [properties] Properties to set
+                         */
+                        function VideoReply(properties) {
+                            this.data = [];
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+
+                        /**
+                         * VideoReply code.
+                         * @member {number} code
+                         * @memberof com.xueershangda.tianxun.video.model.VideoReply
+                         * @instance
+                         */
+                        VideoReply.prototype.code = 0;
+
+                        /**
+                         * VideoReply message.
+                         * @member {string} message
+                         * @memberof com.xueershangda.tianxun.video.model.VideoReply
+                         * @instance
+                         */
+                        VideoReply.prototype.message = "";
+
+                        /**
+                         * VideoReply data.
+                         * @member {Array.<com.xueershangda.tianxun.video.model.IVideo>} data
+                         * @memberof com.xueershangda.tianxun.video.model.VideoReply
+                         * @instance
+                         */
+                        VideoReply.prototype.data = $util.emptyArray;
+
+                        /**
+                         * VideoReply video.
+                         * @member {com.xueershangda.tianxun.video.model.IVideo|null|undefined} video
+                         * @memberof com.xueershangda.tianxun.video.model.VideoReply
+                         * @instance
+                         */
+                        VideoReply.prototype.video = null;
+
+                        /**
+                         * Creates a new VideoReply instance using the specified properties.
+                         * @function create
+                         * @memberof com.xueershangda.tianxun.video.model.VideoReply
+                         * @static
+                         * @param {com.xueershangda.tianxun.video.model.IVideoReply=} [properties] Properties to set
+                         * @returns {com.xueershangda.tianxun.video.model.VideoReply} VideoReply instance
+                         */
+                        VideoReply.create = function create(properties) {
+                            return new VideoReply(properties);
+                        };
+
+                        /**
+                         * Encodes the specified VideoReply message. Does not implicitly {@link com.xueershangda.tianxun.video.model.VideoReply.verify|verify} messages.
+                         * @function encode
+                         * @memberof com.xueershangda.tianxun.video.model.VideoReply
+                         * @static
+                         * @param {com.xueershangda.tianxun.video.model.IVideoReply} message VideoReply message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        VideoReply.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.code != null && message.hasOwnProperty("code"))
+                                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.code);
+                            if (message.message != null && message.hasOwnProperty("message"))
+                                writer.uint32(/* id 2, wireType 2 =*/18).string(message.message);
+                            if (message.data != null && message.data.length)
+                                for (var i = 0; i < message.data.length; ++i)
+                                    $root.com.xueershangda.tianxun.video.model.Video.encode(message.data[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                            if (message.video != null && message.hasOwnProperty("video"))
+                                $root.com.xueershangda.tianxun.video.model.Video.encode(message.video, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+                            return writer;
+                        };
+
+                        /**
+                         * Encodes the specified VideoReply message, length delimited. Does not implicitly {@link com.xueershangda.tianxun.video.model.VideoReply.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof com.xueershangda.tianxun.video.model.VideoReply
+                         * @static
+                         * @param {com.xueershangda.tianxun.video.model.IVideoReply} message VideoReply message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        VideoReply.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+
+                        /**
+                         * Decodes a VideoReply message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof com.xueershangda.tianxun.video.model.VideoReply
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {com.xueershangda.tianxun.video.model.VideoReply} VideoReply
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        VideoReply.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.com.xueershangda.tianxun.video.model.VideoReply();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                case 1:
+                                    message.code = reader.int32();
+                                    break;
+                                case 2:
+                                    message.message = reader.string();
+                                    break;
+                                case 3:
+                                    if (!(message.data && message.data.length))
+                                        message.data = [];
+                                    message.data.push($root.com.xueershangda.tianxun.video.model.Video.decode(reader, reader.uint32()));
+                                    break;
+                                case 4:
+                                    message.video = $root.com.xueershangda.tianxun.video.model.Video.decode(reader, reader.uint32());
+                                    break;
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Decodes a VideoReply message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof com.xueershangda.tianxun.video.model.VideoReply
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {com.xueershangda.tianxun.video.model.VideoReply} VideoReply
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        VideoReply.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+
+                        /**
+                         * Verifies a VideoReply message.
+                         * @function verify
+                         * @memberof com.xueershangda.tianxun.video.model.VideoReply
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        VideoReply.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.code != null && message.hasOwnProperty("code"))
+                                if (!$util.isInteger(message.code))
+                                    return "code: integer expected";
+                            if (message.message != null && message.hasOwnProperty("message"))
+                                if (!$util.isString(message.message))
+                                    return "message: string expected";
+                            if (message.data != null && message.hasOwnProperty("data")) {
+                                if (!Array.isArray(message.data))
+                                    return "data: array expected";
+                                for (var i = 0; i < message.data.length; ++i) {
+                                    var error = $root.com.xueershangda.tianxun.video.model.Video.verify(message.data[i]);
+                                    if (error)
+                                        return "data." + error;
+                                }
+                            }
+                            if (message.video != null && message.hasOwnProperty("video")) {
+                                var error = $root.com.xueershangda.tianxun.video.model.Video.verify(message.video);
+                                if (error)
+                                    return "video." + error;
+                            }
+                            return null;
+                        };
+
+                        /**
+                         * Creates a VideoReply message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof com.xueershangda.tianxun.video.model.VideoReply
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {com.xueershangda.tianxun.video.model.VideoReply} VideoReply
+                         */
+                        VideoReply.fromObject = function fromObject(object) {
+                            if (object instanceof $root.com.xueershangda.tianxun.video.model.VideoReply)
+                                return object;
+                            var message = new $root.com.xueershangda.tianxun.video.model.VideoReply();
+                            if (object.code != null)
+                                message.code = object.code | 0;
+                            if (object.message != null)
+                                message.message = String(object.message);
+                            if (object.data) {
+                                if (!Array.isArray(object.data))
+                                    throw TypeError(".com.xueershangda.tianxun.video.model.VideoReply.data: array expected");
+                                message.data = [];
+                                for (var i = 0; i < object.data.length; ++i) {
+                                    if (typeof object.data[i] !== "object")
+                                        throw TypeError(".com.xueershangda.tianxun.video.model.VideoReply.data: object expected");
+                                    message.data[i] = $root.com.xueershangda.tianxun.video.model.Video.fromObject(object.data[i]);
+                                }
+                            }
+                            if (object.video != null) {
+                                if (typeof object.video !== "object")
+                                    throw TypeError(".com.xueershangda.tianxun.video.model.VideoReply.video: object expected");
+                                message.video = $root.com.xueershangda.tianxun.video.model.Video.fromObject(object.video);
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Creates a plain object from a VideoReply message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof com.xueershangda.tianxun.video.model.VideoReply
+                         * @static
+                         * @param {com.xueershangda.tianxun.video.model.VideoReply} message VideoReply
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        VideoReply.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.arrays || options.defaults)
+                                object.data = [];
+                            if (options.defaults) {
+                                object.code = 0;
+                                object.message = "";
+                                object.video = null;
+                            }
+                            if (message.code != null && message.hasOwnProperty("code"))
+                                object.code = message.code;
+                            if (message.message != null && message.hasOwnProperty("message"))
+                                object.message = message.message;
+                            if (message.data && message.data.length) {
+                                object.data = [];
+                                for (var j = 0; j < message.data.length; ++j)
+                                    object.data[j] = $root.com.xueershangda.tianxun.video.model.Video.toObject(message.data[j], options);
+                            }
+                            if (message.video != null && message.hasOwnProperty("video"))
+                                object.video = $root.com.xueershangda.tianxun.video.model.Video.toObject(message.video, options);
+                            return object;
+                        };
+
+                        /**
+                         * Converts this VideoReply to JSON.
+                         * @function toJSON
+                         * @memberof com.xueershangda.tianxun.video.model.VideoReply
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        VideoReply.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+
+                        return VideoReply;
+                    })();
+
+                    return model;
+                })();
+
+                return video;
+            })();
+
             return tianxun;
         })();
 

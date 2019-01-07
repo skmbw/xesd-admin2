@@ -101,3 +101,8 @@ Thank you to all our backers! 🙏
 ### License
 
 The MIT License (see the [LICENSE](https://github.com/ng-alain/ng-alain/blob/master/LICENSE) file for the full text)
+
+## 常见疑问
+### protobuf的model类
+* 我生成的model的文件名是 protobuf-model时，会出现 'com.xueershangda.tianxun' has no exported member video这个异常。不知道是
+什么原因，反正我将文件名改成model好了？？？

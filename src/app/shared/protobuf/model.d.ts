@@ -2324,7 +2324,7 @@ export namespace com {
                         public title: string;
 
                         /** Article summary. */
-                        public summary: string;
+                        public summary: any;
 
                         /** Article freeTimes. */
                         public freeTimes: number;
@@ -5916,6 +5916,362 @@ export namespace com {
 
                         /**
                          * Converts this VirtualItemsReply to JSON.
+                         * @returns JSON object
+                         */
+                        public toJSON(): { [k: string]: any };
+                    }
+                }
+            }
+
+            /** Namespace video. */
+            namespace video {
+
+                /** Namespace model. */
+                namespace model {
+
+                    /** Properties of a Video. */
+                    interface IVideo {
+
+                        /** Video id */
+                        id?: (string|null);
+
+                        /** 视频标题 */
+                        title?: (string|null);
+
+                        /** 视频url */
+                        url?: (string|null);
+
+                        /** 视频封面 */
+                        image?: (string|null);
+
+                        /** 视频简介 */
+                        summary?: (string|null);
+
+                        /** 创建时间 */
+                        createDate?: (number|null);
+
+                        /** 更新时间 */
+                        updateDate?: (number|null);
+
+                        /** 价格 */
+                        price?: (number|null);
+
+                        /** 免费时长 */
+                        freeTime?: (number|null);
+
+                        /** 是否免费 */
+                        free?: (boolean|null);
+
+                        /** 销售数 */
+                        number?: (number|null);
+
+                        /** 点赞数 */
+                        loveNumber?: (number|null);
+
+                        /** 关注数 */
+                        focusNumber?: (number|null);
+
+                        /** 鄙视数 */
+                        despiseNumber?: (number|null);
+
+                        /** 状态 */
+                        state?: (number|null);
+
+                        /** 分类 */
+                        category?: (string|null);
+
+                        /** 广告语 */
+                        ads?: (string|null);
+
+                        /** 备注 */
+                        remark?: (string|null);
+
+                        /** 用户id/平台 */
+                        userId?: (string|null);
+
+                        /** 视频类型 */
+                        videoType?: (string|null);
+
+                        /** 备用2 */
+                        backup2?: (number|null);
+
+                        /** 预览url，试看 */
+                        previewUrl?: (string|null);
+
+                        /** order by 排序语句 */
+                        orderBy?: (string|null);
+
+                        /** 分页开始记录 */
+                        start?: (number|null);
+
+                        /** 页码 */
+                        page?: (number|null);
+
+                        /** 分页大小 */
+                        pageSize?: (number|null);
+                    }
+
+                    /** Represents a Video. */
+                    class Video implements IVideo {
+
+                        /**
+                         * Constructs a new Video.
+                         * @param [properties] Properties to set
+                         */
+                        constructor(properties?: com.xueershangda.tianxun.video.model.IVideo);
+
+                        /** Video id. */
+                        public id: string;
+
+                        /** 视频标题 */
+                        public title: string;
+
+                        /** 视频url */
+                        public url: string;
+
+                        /** 视频封面 */
+                        public image: string;
+
+                        /** 视频简介 */
+                        public summary: string;
+
+                        /** 创建时间 */
+                        public createDate: (number);
+
+                        /** 更新时间 */
+                        public updateDate: (number);
+
+                        /** 价格 */
+                        public price: number;
+
+                        /** 免费时长 */
+                        public freeTime: number;
+
+                        /** 是否免费 */
+                        public free: boolean;
+
+                        /** 销售数 */
+                        public number: number;
+
+                        /** 点赞数 */
+                        public loveNumber: number;
+
+                        /** 关注数 */
+                        public focusNumber: number;
+
+                        /** 鄙视数 */
+                        public despiseNumber: number;
+
+                        /** 状态 */
+                        public state: number;
+
+                        /** 分类 */
+                        public category: string;
+
+                        /** 广告语 */
+                        public ads: string;
+
+                        /** 备注 */
+                        public remark: string;
+
+                        /** 用户id/平台 */
+                        public userId: string;
+
+                        /** 视频类型 */
+                        public videoType: string;
+
+                        /** 备用2 */
+                        public backup2: number;
+
+                        /** 预览url，试看 */
+                        public previewUrl: string;
+
+                        /** order by 排序语句 */
+                        public orderBy: string;
+
+                        /** 分页开始记录 */
+                        public start: number;
+
+                        /** 页码 */
+                        public page: number;
+
+                        /** 分页大小 */
+                        public pageSize: number;
+
+                        /**
+                         * Creates a new Video instance using the specified properties.
+                         * @param [properties] Properties to set
+                         * @returns Video instance
+                         */
+                        public static create(properties?: com.xueershangda.tianxun.video.model.IVideo): com.xueershangda.tianxun.video.model.Video;
+
+                        /**
+                         * Encodes the specified Video message. Does not implicitly {@link com.xueershangda.tianxun.video.model.Video.verify|verify} messages.
+                         * @param message Video message or plain object to encode
+                         * @param [writer] Writer to encode to
+                         * @returns Writer
+                         */
+                        public static encode(message: com.xueershangda.tianxun.video.model.IVideo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                        /**
+                         * Encodes the specified Video message, length delimited. Does not implicitly {@link com.xueershangda.tianxun.video.model.Video.verify|verify} messages.
+                         * @param message Video message or plain object to encode
+                         * @param [writer] Writer to encode to
+                         * @returns Writer
+                         */
+                        public static encodeDelimited(message: com.xueershangda.tianxun.video.model.IVideo, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                        /**
+                         * Decodes a Video message from the specified reader or buffer.
+                         * @param reader Reader or buffer to decode from
+                         * @param [length] Message length if known beforehand
+                         * @returns Video
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): com.xueershangda.tianxun.video.model.Video;
+
+                        /**
+                         * Decodes a Video message from the specified reader or buffer, length delimited.
+                         * @param reader Reader or buffer to decode from
+                         * @returns Video
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): com.xueershangda.tianxun.video.model.Video;
+
+                        /**
+                         * Verifies a Video message.
+                         * @param message Plain object to verify
+                         * @returns `null` if valid, otherwise the reason why it is not
+                         */
+                        public static verify(message: { [k: string]: any }): (string|null);
+
+                        /**
+                         * Creates a Video message from a plain object. Also converts values to their respective internal types.
+                         * @param object Plain object
+                         * @returns Video
+                         */
+                        public static fromObject(object: { [k: string]: any }): com.xueershangda.tianxun.video.model.Video;
+
+                        /**
+                         * Creates a plain object from a Video message. Also converts values to other types if specified.
+                         * @param message Video
+                         * @param [options] Conversion options
+                         * @returns Plain object
+                         */
+                        public static toObject(message: com.xueershangda.tianxun.video.model.Video, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                        /**
+                         * Converts this Video to JSON.
+                         * @returns JSON object
+                         */
+                        public toJSON(): { [k: string]: any };
+                    }
+
+                    /** Properties of a VideoReply. */
+                    interface IVideoReply {
+
+                        /** VideoReply code */
+                        code?: (number|null);
+
+                        /** VideoReply message */
+                        message?: (string|null);
+
+                        /** VideoReply data */
+                        data?: (com.xueershangda.tianxun.video.model.IVideo[]|null);
+
+                        /** VideoReply video */
+                        video?: (com.xueershangda.tianxun.video.model.IVideo|null);
+                    }
+
+                    /** Represents a VideoReply. */
+                    class VideoReply implements IVideoReply {
+
+                        /**
+                         * Constructs a new VideoReply.
+                         * @param [properties] Properties to set
+                         */
+                        constructor(properties?: com.xueershangda.tianxun.video.model.IVideoReply);
+
+                        /** VideoReply code. */
+                        public code: number;
+
+                        /** VideoReply message. */
+                        public message: string;
+
+                        /** VideoReply data. */
+                        public data: com.xueershangda.tianxun.video.model.IVideo[];
+
+                        /** VideoReply video. */
+                        public video?: (com.xueershangda.tianxun.video.model.IVideo|null);
+
+                        /**
+                         * Creates a new VideoReply instance using the specified properties.
+                         * @param [properties] Properties to set
+                         * @returns VideoReply instance
+                         */
+                        public static create(properties?: com.xueershangda.tianxun.video.model.IVideoReply): com.xueershangda.tianxun.video.model.VideoReply;
+
+                        /**
+                         * Encodes the specified VideoReply message. Does not implicitly {@link com.xueershangda.tianxun.video.model.VideoReply.verify|verify} messages.
+                         * @param message VideoReply message or plain object to encode
+                         * @param [writer] Writer to encode to
+                         * @returns Writer
+                         */
+                        public static encode(message: com.xueershangda.tianxun.video.model.IVideoReply, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                        /**
+                         * Encodes the specified VideoReply message, length delimited. Does not implicitly {@link com.xueershangda.tianxun.video.model.VideoReply.verify|verify} messages.
+                         * @param message VideoReply message or plain object to encode
+                         * @param [writer] Writer to encode to
+                         * @returns Writer
+                         */
+                        public static encodeDelimited(message: com.xueershangda.tianxun.video.model.IVideoReply, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                        /**
+                         * Decodes a VideoReply message from the specified reader or buffer.
+                         * @param reader Reader or buffer to decode from
+                         * @param [length] Message length if known beforehand
+                         * @returns VideoReply
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): com.xueershangda.tianxun.video.model.VideoReply;
+
+                        /**
+                         * Decodes a VideoReply message from the specified reader or buffer, length delimited.
+                         * @param reader Reader or buffer to decode from
+                         * @returns VideoReply
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): com.xueershangda.tianxun.video.model.VideoReply;
+
+                        /**
+                         * Verifies a VideoReply message.
+                         * @param message Plain object to verify
+                         * @returns `null` if valid, otherwise the reason why it is not
+                         */
+                        public static verify(message: { [k: string]: any }): (string|null);
+
+                        /**
+                         * Creates a VideoReply message from a plain object. Also converts values to their respective internal types.
+                         * @param object Plain object
+                         * @returns VideoReply
+                         */
+                        public static fromObject(object: { [k: string]: any }): com.xueershangda.tianxun.video.model.VideoReply;
+
+                        /**
+                         * Creates a plain object from a VideoReply message. Also converts values to other types if specified.
+                         * @param message VideoReply
+                         * @param [options] Conversion options
+                         * @returns Plain object
+                         */
+                        public static toObject(message: com.xueershangda.tianxun.video.model.VideoReply, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                        /**
+                         * Converts this VideoReply to JSON.
                          * @returns JSON object
                          */
                         public toJSON(): { [k: string]: any };
