@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {_HttpClient, ModalHelper} from '@delon/theme';
+import {ModalHelper} from '@delon/theme';
 import {STColumn, STComponent, STData} from '@delon/abc';
 import {SFSchema} from '@delon/form';
 import {VideoListEditComponent} from './edit/edit.component';
@@ -7,6 +7,7 @@ import {VideoListViewComponent} from './view/view.component';
 import {VideoService} from '../../service/video.service';
 import {com} from '@shared';
 import {Consts} from '@shared/utils/consts';
+import {ToastrService} from 'ngx-toastr';
 import VideoReply = com.xueershangda.tianxun.video.model.VideoReply;
 import Video = com.xueershangda.tianxun.video.model.Video;
 
@@ -74,7 +75,7 @@ export class VideoListComponent implements OnInit {
     }
   ];
 
-  constructor(private http: _HttpClient, private modal: ModalHelper,
+  constructor(private toastr: ToastrService, private modal: ModalHelper,
               private videoService: VideoService) { }
 
   ngOnInit() {
@@ -90,7 +91,7 @@ export class VideoListComponent implements OnInit {
         }
         this.url = reply.data as STData[];
       } else {
-        console.log(reply.message);
+        this.toastr.success(reply.message);
       }
     });
   }
