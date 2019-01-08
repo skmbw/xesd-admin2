@@ -29,7 +29,7 @@ export class VideoListEditComponent implements OnInit {
         ],
         default: true,
       },
-      url: { type: 'string', title: '链接', format: 'uri' },
+      // url: { type: 'string', title: '链接', format: 'uri' },
       coverImage: { type: 'string', title: '封面图片',
         // enum: [ // enum中的静态数据会以a标签展示，后面上传的是span标签
         //   // {
@@ -47,7 +47,7 @@ export class VideoListEditComponent implements OnInit {
       video: { type: 'string', title: '视频文件'},
       description: { type: 'string', title: '描述', maxLength: 140 }
     },
-    required: ['title', 'price', 'free', 'url', 'coverImage', 'video'],
+    required: ['title', 'price', 'free', 'coverImage', 'video'],
   };
   ui: SFUISchema = {
     '*': {
@@ -70,10 +70,10 @@ export class VideoListEditComponent implements OnInit {
     $free: {
       widget: 'select',
     },
-    $url: {
-      widget: 'string',
-      grid: { span: 24 }
-    },
+    // $url: {
+    //   widget: 'string',
+    //   grid: { span: 24 }
+    // },
     $coverImage: {
       widget: 'upload',
       action: 'http://localhost:8775/video/upload',
@@ -94,6 +94,8 @@ export class VideoListEditComponent implements OnInit {
             if (JsUtils.isBlank(this.record.id)) {
               this.record.id = response.resourceId;
             }
+            const ext = reply.name.substring(reply.name.lastIndexOf('.'));
+            this.record.image = this.record.id + ext;
           }
           // reply.url = response.url;
           // this.schema.properties.coverImage.enum[0] = reply;
@@ -138,6 +140,8 @@ export class VideoListEditComponent implements OnInit {
             if (JsUtils.isBlank(this.record.id)) {
               this.record.id = response.videoId;
             }
+            const ext = reply.name.substring(reply.name.lastIndexOf('.'));
+            this.record.url = this.record.id + ext;
           }
         }
       }
@@ -167,9 +171,15 @@ export class VideoListEditComponent implements OnInit {
     //   this.msgSrv.success('保存成功');
     //   this.modal.close(true);
     // });
+    if (value.coverImage !== value.video) {
+      this.msgSrv.info('视频文件和封面图片信息不匹配。');
+      return;
+    }
     if (value.id === 0 || JsUtils.isBlank(value.id)) {
       value.id = this.record.id;
     }
+    value.image = this.record.image;
+    value.url = this.record.url;
     this.videoService.save(value as Video).subscribe(result => {
       const uint8Array = new Uint8Array(result, 0, result.byteLength);
       const reply = VideoReply.decode(uint8Array);
