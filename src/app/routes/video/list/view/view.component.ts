@@ -3,6 +3,7 @@ import {NzMessageService, NzModalRef} from 'ng-zorro-antd';
 import {com} from '@shared';
 import {VideoService} from '../../../service/video.service';
 import VideoReply = com.xueershangda.tianxun.video.model.VideoReply;
+import IVideo = com.xueershangda.tianxun.video.model.IVideo;
 
 @Component({
   selector: 'video-list-view',
@@ -10,7 +11,7 @@ import VideoReply = com.xueershangda.tianxun.video.model.VideoReply;
 })
 export class VideoListViewComponent implements OnInit {
   record: any = {};
-  i: any;
+  i: IVideo;
 
   constructor(
     private modal: NzModalRef,

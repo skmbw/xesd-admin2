@@ -1,13 +1,15 @@
 <div class="modal-header">
-  <div class="modal-title">查看 {{ record.id }} 信息</div>
+  <div class="modal-title">查看视频 {{ record.id }} 信息</div>
 </div>
 <nz-spin *ngIf="!i" class="modal-spin"></nz-spin>
 <div sv-container *ngIf="i">
-  <sv label="姓名">{{ i.owner }}</sv>
-  <sv label="会员卡号">32943898021309809423</sv>
-  <sv label="身份证">3321944288191034921</sv>
-  <sv label="联系方式">18112345678</sv>
-  <sv label="联系地址">曲丽丽 18100000000 浙江省杭州市西湖区黄姑山路工专路交叉路口</sv>
+  <sv label="标题">{{i.title}}</sv>
+  <sv label="分类">{{i.category}}</sv>
+  <sv label="是否免费">{{i.free}}</sv>
+  <sv label="封面图片">{{i.image}}</sv>
+  <sv label="URL">{{i.url}}</sv>
+  <sv label="创建时间">{{i.createDate | date: 'yyyy-MM-dd HH:mm'}}</sv>
+  <sv label="状态">{{i.state}}</sv>
 </div>
 <div class="modal-footer">
   <button nz-button type="button" (click)="close()">关闭</button>
