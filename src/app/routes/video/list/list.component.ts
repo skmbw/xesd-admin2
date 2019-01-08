@@ -1,19 +1,24 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {_HttpClient, ModalHelper} from '@delon/theme';
-import {STColumn, STComponent} from '@delon/abc';
+import {STColumn, STComponent, STData} from '@delon/abc';
 import {SFSchema} from '@delon/form';
 import {VideoListEditComponent} from './edit/edit.component';
 import {VideoListViewComponent} from './view/view.component';
+import {VideoService} from '../../service/video.service';
+import {com} from '@shared';
+import {Consts} from '@shared/utils/consts';
+import VideoReply = com.xueershangda.tianxun.video.model.VideoReply;
+import Video = com.xueershangda.tianxun.video.model.Video;
 
 @Component({
   selector: 'video-list',
   templateUrl: './list.component.html',
 })
 export class VideoListComponent implements OnInit {
-  url = `/user`;
+  url: STData[] = [];
   searchSchema: SFSchema = {
     properties: {
-      no: {
+      id: {
         type: 'string',
         title: '编号'
       }
@@ -21,10 +26,15 @@ export class VideoListComponent implements OnInit {
   };
   @ViewChild('st') st: STComponent;
   columns: STColumn[] = [
-    { title: '编号', index: 'no' },
-    { title: '调用次数', type: 'number', index: 'callNo' },
-    { title: '头像', type: 'img', width: '50px', index: 'avatar' },
-    { title: '时间', type: 'date', index: 'updatedAt' },
+    { title: '编号', index: 'id' },
+    { title: '标题', index: 'title' },
+    { title: '分类', index: 'category' },
+    { title: '封面', type: 'img', index: 'image',
+      // format: (item: STData, col: STColumn) => {
+      //   return Consts.IMAGE_HOST + item.image;
+      // }
+    },
+    { title: '时间', type: 'date', index: 'createDate' },
     {
       title: '',
       buttons: [
@@ -64,9 +74,26 @@ export class VideoListComponent implements OnInit {
     }
   ];
 
-  constructor(private http: _HttpClient, private modal: ModalHelper) { }
+  constructor(private http: _HttpClient, private modal: ModalHelper,
+              private videoService: VideoService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    const video = new Video();
+    video.page = 1;
+    video.pageSize = 20;
+    this.videoService.list(video).subscribe(result => {
+      const uint8Array = new Uint8Array(result, 0, result.byteLength);
+      const reply = VideoReply.decode(uint8Array);
+      if (reply.code === 1) {
+        for (const v of reply.data) { // 渲染的时候，不能加url前缀，这里处理一下
+          v.image = Consts.IMAGE_HOST + v.image;
+        }
+        this.url = reply.data as STData[];
+      } else {
+        console.log(reply.message);
+      }
+    });
+  }
 
   add() {
     this.modal

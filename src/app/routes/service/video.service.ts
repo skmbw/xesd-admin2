@@ -25,4 +25,12 @@ export class VideoService extends CommonService {
   save(video: Video): Observable<ArrayBuffer> {
     return this.postProtobuf(Consts.URL + 'video/add', this.encode(video));
   }
+
+  list(video: Video): Observable<ArrayBuffer> {
+    return this.postProtobuf(Consts.URL + 'video/list', this.encode(video));
+  }
+
+  get(id: string): Observable<ArrayBuffer> {
+    return this.getArrayBuffer(Consts.URL + 'video/detail/' + id);
+  }
 }
