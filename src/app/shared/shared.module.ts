@@ -21,8 +21,7 @@ const THIRDMODULES = [
   NgZorroAntdModule,
   CountdownModule,
   UEditorModule,
-  NgxTinymceModule,
-  ToastrModule.forRoot({timeOut: 3000, positionClass: 'toast-center-center'})
+  NgxTinymceModule
 ];
 // #endregion
 
@@ -44,6 +43,8 @@ const DIRECTIVES = [];
     DelonFormModule,
     // third libs
     ...THIRDMODULES,
+    // 这个不需要重新export，所以不能放在 THIRDMODULES 中
+    ToastrModule.forRoot({timeOut: 3000, positionClass: 'toast-center-center'})
   ],
   declarations: [
     // your components
