@@ -1,8 +1,6 @@
 <div class="modal-header">
   <div class="modal-title">
-    <span *ngIf="record.id !== undefined">编辑</span>
-    <span *ngIf="record.id === undefined">新增</span>
-    视频 {{ record.id }} 信息</div>
+    <span *ngIf="record.id !== undefined">编辑</span><span *ngIf="record.id === undefined">新增</span>视频 {{ record.id }} 信息</div>
 </div>
 <nz-spin *ngIf="!i" class="modal-spin"></nz-spin>
 <sf *ngIf="i" #sf mode="edit" [schema]="schema" [ui]="ui" [formData]="i" button="none">
