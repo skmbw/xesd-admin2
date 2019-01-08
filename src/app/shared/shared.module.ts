@@ -15,12 +15,14 @@ import {NgZorroAntdModule} from 'ng-zorro-antd';
 import {CountdownModule} from 'ngx-countdown';
 import {UEditorModule} from 'ngx-ueditor';
 import {NgxTinymceModule} from 'ngx-tinymce';
+import {ToastrModule} from 'ngx-toastr';
 
 const THIRDMODULES = [
   NgZorroAntdModule,
   CountdownModule,
   UEditorModule,
   NgxTinymceModule,
+  ToastrModule.forRoot({timeOut: 3000, positionClass: 'toast-center-center'})
 ];
 // #endregion
 
