@@ -4,7 +4,6 @@ import {_HttpClient} from '@delon/theme';
 import {SFSchema, SFUISchema} from '@delon/form';
 import {VideoService} from '../../../service/video.service';
 import {com} from '@shared/protobuf/model';
-import {Consts} from '@shared/utils/consts';
 import {JsUtils} from '@shared/utils/js-utils';
 import Video = com.xueershangda.tianxun.video.model.Video;
 import VideoReply = com.xueershangda.tianxun.video.model.VideoReply;
@@ -18,7 +17,7 @@ export class VideoListEditComponent implements OnInit {
   i: any;
   schema: SFSchema = {
     properties: {
-      no: { type: 'string', title: '编号' },
+      id: { type: 'string', title: '编号' },
       title: { type: 'string', title: '标题', maxLength: 200 },
       summary: { type: 'string', title: '简介' },
       price: { type: 'number', title: '价格', default: 0 },
@@ -54,7 +53,7 @@ export class VideoListEditComponent implements OnInit {
       spanLabelFixed: 100,
       grid: { span: 12 },
     },
-    $no: {
+    $id: {
       widget: 'text'
     },
     $title: {
@@ -162,8 +161,19 @@ export class VideoListEditComponent implements OnInit {
 
   ngOnInit(): void {
     // alert(this.record.id); // this.undefined就是穿过来的参数，但是table.js._btnClick中的bug，没有设置或取到参数名导致
-    if (this.record.id > 0)
-      this.http.get(Consts.URL + `/video/detail/${this.record.id}`).subscribe(res => (this.i = res));
+    // if (this.record.id > 0)
+    //   this.http.get(Consts.URL + `/video/detail/${this.record.id}`).subscribe(res => (this.i = res));
+    if (JsUtils.isNotBlank(this.record.id)) {
+      this.videoService.get(this.record.id).subscribe(res => {
+        const uint8Array = new Uint8Array(res, 0, res.byteLength);
+        const reply = VideoReply.decode(uint8Array);
+        if (reply.code === 1) {
+          this.i = reply.video;
+        } else {
+          this.msgSrv.info(reply.message);
+        }
+      });
+    }
   }
 
   save(value: any) {

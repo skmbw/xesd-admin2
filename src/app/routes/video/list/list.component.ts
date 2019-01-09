@@ -98,7 +98,7 @@ export class VideoListComponent implements OnInit {
 
   add() {
     this.modal
-      .createStatic(VideoListEditComponent, { i: { id: 0 } })
+      .createStatic(VideoListEditComponent, { i: { id: '' } }) // id 初始化为空
       .subscribe(() => this.st.reload());
   }
 
