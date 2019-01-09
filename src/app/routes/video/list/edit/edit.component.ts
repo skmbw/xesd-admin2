@@ -44,9 +44,9 @@ export class VideoListEditComponent implements OnInit {
         // ]
       },
       video: { type: 'string', title: '视频文件'},
-      description: { type: 'string', title: '描述', maxLength: 140 }
+      category: { type: 'string', title: '分类', maxLength: 12 }
     },
-    required: ['title', 'price', 'free', 'coverImage', 'video'],
+    required: ['title', 'price', 'free', 'coverImage', 'video', 'category'],
   };
   ui: SFUISchema = {
     '*': {
@@ -145,9 +145,8 @@ export class VideoListEditComponent implements OnInit {
         }
       }
     },
-    $description: {
-      widget: 'textarea',
-      grid: { span: 24 }
+    $category: {
+      widget: 'string'
     }
   };
 
