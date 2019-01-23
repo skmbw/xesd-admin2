@@ -5,6 +5,7 @@ import {SFSchema, SFUISchema} from '@delon/form';
 import {VideoService} from '../../../service/video.service';
 import {com} from '@shared/protobuf/model';
 import {JsUtils} from '@shared/utils/js-utils';
+import {Consts} from '@shared/utils/consts';
 import Video = com.xueershangda.tianxun.video.model.Video;
 import VideoReply = com.xueershangda.tianxun.video.model.VideoReply;
 
@@ -75,7 +76,7 @@ export class VideoListEditComponent implements OnInit {
     // },
     $coverImage: {
       widget: 'upload',
-      action: 'http://localhost:8775/video/upload',
+      action: Consts.URL + 'video/upload',
       name: 'coverImage',
       fileType: 'image/png,image/jpeg,image/gif,image/bmp',
       fileSize: 2048,
@@ -121,9 +122,10 @@ export class VideoListEditComponent implements OnInit {
     },
     $video: {
       widget: 'upload',
-      action: 'http://localhost:8775/video/upload',
+      action: Consts.URL + 'video/upload',
       name: 'video',
       fileType: 'video/mp4',
+      fileSize: 204800,
       resReName: 'videoId', // 这个字段的值会赋值给video，当保存时用来关联上传的文件和该记录
       data: (upload: UploadFile) => { // 要用回调，静态的话，当更新了数据，里面的数据也不会更新
         const id = JsUtils.isBlank(this.record.id) ? '' : this.record.id;
