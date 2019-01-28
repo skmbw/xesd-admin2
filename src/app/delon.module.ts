@@ -24,7 +24,7 @@ import {environment} from '@env/environment';
  */
 import {PageHeaderConfig, STConfig} from '@delon/abc';
 import {DelonAuthConfig} from '@delon/auth';
-
+// 登录和注册的mock就在这里配置的，在项目的_mock/_user.ts中
 const MOCK_MODULES = !environment.production
   ? [DelonMockModule.forRoot({ data: MOCKDATA })]
   : [];
